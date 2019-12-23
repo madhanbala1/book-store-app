@@ -1,0 +1,45 @@
+<br /><br />
+
+<%= form_for :search_customers, url: root_path, method: :get do |form| %>
+	<%= form.text_field :query, value: params[:search_customers].presence && params[:search_customers][:query] %>
+	<%= form.submit 'Search' %>
+<% end %>
+
+<br />
+
+<% if @customers.size != 0 %>
+	<table class="table table-striped table-bordered table-dark">
+		<thead>
+			<tr>
+				<th width="200">Customer Name</th>
+				<th width="200">Phone</th>
+				<th width="200">Email</th>
+				<th width="200">Street</th>
+				<th width="200">City</th>
+				<th width="200">State</th>
+				<th width="200">Zip Code</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @customers.each do |c| %>
+			<tr>
+				<td><%= c.first_name + " " + c.last_name %></td>
+				<td><%= c.phone %></td>
+				<td><%= c.email %></td>
+				<td><%= c.street %></td>
+				<td><%= c.city %></td>
+				<td><%= c.state %></td>
+				<td><%= c.zip_code %></td>
+
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<center><h4>No Results Found</h4></center>
+<% end %>
+
+<center><%= will_paginate @customers, renderer: BootstrapPagination::Rails, previous_label: "Back", next_label: "Next", inner_window: 1, outer_window: 1 %></center>
+
+<%= link_to "Go to Orders", orders_path %>
