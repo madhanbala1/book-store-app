@@ -9,6 +9,7 @@ set :repo_url, "git@github.com:madhanbala1/book-store-app.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/#{fetch :application}"
+set :tmp_dir, "/home/deploy/tmp"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
