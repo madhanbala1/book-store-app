@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: bike_store_app_production
-  username: bike_store_app
-  password: <%= ENV['BIKE_STORE_APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: root
