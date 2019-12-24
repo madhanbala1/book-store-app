@@ -11,6 +11,8 @@ set :repo_url, "git@github.com:madhanbala1/book-store-app.git"
 set :deploy_to, "/var/www/#{fetch :application}"
 set :tmp_dir, "/var/www/tmp"
 
+set :rvm_map_bins, %w{gem rake ruby rails bundle}
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
